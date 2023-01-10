@@ -29,9 +29,6 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Tickets'),
-      ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
       ),
@@ -41,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
         elevation: 10,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        selectedItemColor: Colors.green,
+        selectedItemColor: Color(0xFF4CAF50),
         type: BottomNavigationBarType.shifting,
         unselectedItemColor: Colors.greenAccent,
         items: const [
