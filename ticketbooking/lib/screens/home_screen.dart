@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:ticketbooking/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
           Container(
@@ -22,9 +23,15 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
-                      children: const [
-                        Text("Good Morning"),
-                        Text("Book Tickets")
+                      children:  [
+                        Text(
+                          "Good Morning",
+                          style: Styles.headLineStyle3,
+                        ),
+                        Text(
+                          "Book Tickets",
+                          style: Styles.headLineStyle,
+                        )
                       ],
                     ),
                     Container(
