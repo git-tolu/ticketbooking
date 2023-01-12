@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Gap(40),
+                const Gap(40),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,7 +98,18 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Gap(15),
-          const Ticketview()
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(
+              left: 20,
+            ),
+            child: Row(
+              children: const [
+                Ticketview(),
+                Ticketview(),
+              ],
+            ),
+          ),
         ],
       ),
     );

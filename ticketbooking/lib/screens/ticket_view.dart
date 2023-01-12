@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:gap/gap.dart';
 import 'package:ticketbooking/utils/app_layout.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 import 'package:ticketbooking/widgets/thick_container.dart';
@@ -13,14 +14,16 @@ class Ticketview extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
-      width: size.width,
+      width: size.width*0.85,
       height: 200,
       child: Container(
         margin: const EdgeInsets.only(
-          left: 16,
+          right: 16,
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
+            //  showing the blue part of card/ticket
             Container(
               decoration: const BoxDecoration(
                 color: Colors.blue,
@@ -85,14 +88,165 @@ class Ticketview extends StatelessWidget {
                       const ThickContainer(),
                       Expanded(child: Container()),
                       Text(
-                        "London",
+                        "LDN",
                         style: Styles.headLineStyle2,
                       ),
                     ],
-                  )
+                  ),
+                  const Gap(3),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          "New-York",
+                          style: Styles.headLineStyle4,
+                        ),
+                      ),
+                      Text(
+                        "8H 39M",
+                        style: Styles.headLineStyle4,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: Text(
+                          'london',
+                          textAlign: TextAlign.end,
+                          style: Styles.headLineStyle3,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            )
+            ),
+            //  showing the orange part of card/ticket
+            Container(
+              color: Colors.white,
+              child: Row(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.greenAccent,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: LayoutBuilder(
+                        builder:
+                            (BuildContext context, BoxConstraints constraints) {
+                          return Flex(
+                              direction: Axis.horizontal,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: List.generate(
+                                (constraints.constrainWidth() / 15).floor(),
+                                (index) => const SizedBox(
+                                  width: 5,
+                                  height: 1,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: Colors.greenAccent,
+                                    ),
+                                  ),
+                                ),
+                              ));
+                        },
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: Colors.greenAccent,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // bottom pRT OF WHITE TICKET
+            Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(21),
+                    bottomRight: Radius.circular(21)),
+              ),
+              padding: const EdgeInsets.only(
+                left: 16,
+                top: 10,
+                right: 16,
+                bottom: 16,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '1 MAY ',
+                            style: Styles.headLineStyle3,
+                          ),
+                          const Gap(5),
+                          Text(
+                            'Date',
+                            style: Styles.headLineStyle4,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            '08:00 AM ',
+                            style: Styles.headLineStyle3,
+                          ),
+                          const Gap(5),
+                          Text(
+                            'Departure Time',
+                            style: Styles.headLineStyle4,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '23',
+                            style: Styles.headLineStyle3,
+                          ),
+                          const Gap(5),
+                          Text(
+                            'Number',
+                            style: Styles.headLineStyle4,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
