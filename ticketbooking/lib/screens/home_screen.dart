@@ -106,10 +106,7 @@ class HomeScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: const [
-                Ticketview(),
-                Ticketview(),
-              ],
+              children: ticketList.map((singleTicket) => Ticketview(ticket: singleTicket)).toList(),
             ),
           ),
           const Gap(15),
