@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:ticketbooking/screens/hotel_screen.dart';
 import 'package:ticketbooking/screens/ticket_view.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 
@@ -107,6 +108,43 @@ class HomeScreen extends StatelessWidget {
               children: const [
                 Ticketview(),
                 Ticketview(),
+              ],
+            ),
+          ),
+          const Gap(15),
+          Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                  onTap: () {
+                    print("You are tapped");
+                  },
+                  child: Text(
+                    "View all",
+                    style: Styles.textStyle,
+                  ),
+                )
+              ],
+            ),
+          ),
+          const Gap(15),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(
+              left: 20,
+            ),
+            child: Row(
+              children: const [
+                HotelScreen(),
+                HotelScreen(),
               ],
             ),
           ),

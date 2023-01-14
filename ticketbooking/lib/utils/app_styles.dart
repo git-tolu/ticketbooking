@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 Color primary = const Color(0xFF4CAF50);
@@ -7,6 +8,7 @@ class Styles {
   static Color textColor = const Color(0xFFB2FF59);
   static Color bgColor = const Color(0xFF9E9E9E);
   static Color orangeColor = const Color(0xFFB2FF59);
+  static Color kakiColor =  Colors.white ;
   static TextStyle textStyle = TextStyle(
     fontSize: 16,
     color: textColor,
