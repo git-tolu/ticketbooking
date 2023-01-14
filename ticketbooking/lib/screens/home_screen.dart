@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:ticketbooking/screens/hotel_screen.dart';
 import 'package:ticketbooking/screens/ticket_view.dart';
+import 'package:ticketbooking/utils/app_info_list.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -142,10 +143,7 @@ class HomeScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: const [
-                HotelScreen(),
-                HotelScreen(),
-              ],
+              children: hotellist.map((singleHotel) => HotelScreen(hotel: singleHotel)).toList(),
             ),
           ),
         ],
