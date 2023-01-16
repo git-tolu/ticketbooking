@@ -29,9 +29,9 @@ class HotelScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: const [
           BoxShadow(
-            color: Colors.black,
-            blurRadius: 20,
-            spreadRadius: 5,
+            color: Color.fromARGB(255, 78, 73, 73),
+            blurRadius: 10,
+            spreadRadius: 2,
           )
         ],
       ),
@@ -43,7 +43,7 @@ class HotelScreen extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Styles.primaryColor,
-              image:  DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/${hotel['image']}"),
               ),

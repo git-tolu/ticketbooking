@@ -11,8 +11,6 @@ class Ticketview extends StatelessWidget {
   final Map<String, dynamic> ticket;
   const Ticketview({Key? key, required this.ticket}) : super(key: key);
 
-  // const Ticketview({super.key});
-
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
@@ -20,7 +18,7 @@ class Ticketview extends StatelessWidget {
       width: size.width * 0.85,
       height: AppLayout.getHeight(200),
       child: Container(
-        margin:  EdgeInsets.only(
+        margin: EdgeInsets.only(
           right: AppLayout.getHeight(10),
         ),
         child: Column(
@@ -31,10 +29,11 @@ class Ticketview extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.blue,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(AppLayout.getHeight(21)),
-                    topRight: Radius.circular(AppLayout.getHeight(21))),
+                  topLeft: Radius.circular(AppLayout.getHeight(21)),
+                  topRight: Radius.circular(AppLayout.getHeight(21)),
+                ),
               ),
-              padding:  EdgeInsets.all(AppLayout.getHeight(16)),
+              padding: EdgeInsets.all(AppLayout.getHeight(16)),
               child: Column(
                 children: [
                   Row(
@@ -129,7 +128,7 @@ class Ticketview extends StatelessWidget {
               color: Colors.white,
               child: Row(
                 children: [
-                   SizedBox(
+                  SizedBox(
                     height: AppLayout.getHeight(20),
                     width: AppLayout.getWidth(10),
                     child: const DecoratedBox(

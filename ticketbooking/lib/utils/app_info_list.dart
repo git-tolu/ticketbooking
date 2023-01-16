@@ -2,13 +2,13 @@ List<Map<String, dynamic>> hotellist = [
   {
     'image': '36928.jpg',
     'place': 'open space',
-    'destination': 'london',
+    'destination': 'London',
     'price': 25
   },
   {
     'image': '36928.jpg',
     'place': 'global will',
-    'destination': 'london',
+    'destination': 'London',
     'price': 40
   },
   {
@@ -22,7 +22,7 @@ List<Map<String, dynamic>> hotellist = [
 List<Map<String, dynamic>> ticketList = [
   {
     "from": {"code": "NYC", "name": "New-York"},
-    "to": {"code", "LDN", "name", "London"},
+    "to": {"code": "LDN", "name": "London"},
     "flying_time": "8H 39H",
     "date": "1 May",
     "departure_time": "08:08 AM",
@@ -30,7 +30,7 @@ List<Map<String, dynamic>> ticketList = [
   },
   { 
     "from": {"code": "NYC", "name": "New-York"},
-    "to": {"code", "LDN", "name", "London"},
+    "to": {"code": "LDN", "name": "London"},
     "flying_time": "8H 39H",
     "date": "1 May",
     "departure_time": "08:08 AM",
