@@ -77,7 +77,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Gap(40),
-                const AppDoubleTextWidget(bigText: "Upcoming Flights", smallText: "View all"),
+                const AppDoubleTextWidget(
+                    bigText: "Upcoming Flights", smallText: "View all"),
               ],
             ),
           ),
@@ -88,7 +89,12 @@ class HomeScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: ticketList.map((singleTicket) => Ticketview(ticket: singleTicket)).toList(),
+              children: ticketList
+                  .map((singleTicket) => Ticketview(
+                        ticket: singleTicket,
+                        isColor: null,
+                      ))
+                  .toList(),
             ),
           ),
           const Gap(15),
@@ -96,8 +102,8 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
             ),
-                
-            child: const AppDoubleTextWidget(bigText: "Hotels", smallText: "View all"),
+            child: const AppDoubleTextWidget(
+                bigText: "Hotels", smallText: "View all"),
           ),
           const Gap(15),
           SingleChildScrollView(
@@ -106,7 +112,9 @@ class HomeScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: hotellist.map((singleHotel) => HotelScreen(hotel: singleHotel)).toList(),
+              children: hotellist
+                  .map((singleHotel) => HotelScreen(hotel: singleHotel))
+                  .toList(),
             ),
           ),
         ],

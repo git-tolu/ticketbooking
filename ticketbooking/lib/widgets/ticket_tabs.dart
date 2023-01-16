@@ -8,7 +8,7 @@ import '../utils/app_layout.dart';
 class AppTicketTabs extends StatelessWidget {
   final String  firstTab;
   final String secondTab;
-  const AppTicketTabs({Key? key, required this.firstTab, required this.secondTab}) : super(key: key);
+  const AppTicketTabs({super.key, required this.firstTab, required this.secondTab});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class AppTicketTabs extends StatelessWidget {
                 ),
                 color: Colors.white,
               ),
-              child: const Center(child: Text(firstTab)),
+              child:  Center(child: Text(firstTab)),
             ),
             // hotels
             Container(
@@ -48,7 +48,7 @@ class AppTicketTabs extends StatelessWidget {
                 ),
                 color: Colors.grey,
               ),
-              child: const Center(child: Text(secondTab)),
+              child:  Center(child: Text(secondTab)),
             ),
           ],
         ),

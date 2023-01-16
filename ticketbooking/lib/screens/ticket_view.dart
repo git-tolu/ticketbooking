@@ -3,20 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:ticketbooking/utils/app_layout.dart';
 import 'package:ticketbooking/utils/app_styles.dart';
+import 'package:ticketbooking/widgets/column_layout.dart';
+import 'package:ticketbooking/widgets/layout_builder_widget.dart';
 import 'package:ticketbooking/widgets/thick_container.dart';
 
 class Ticketview extends StatelessWidget {
   final Map<String, dynamic> ticket;
-  const Ticketview({Key? key, required this.ticket}) : super(key: key);
+  final bool? isColor;
+  const Ticketview({Key? key, required this.ticket, required this.isColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: AppLayout.getHeight(200),
+      height: AppLayout.getHeight(GetPlatform.isAndroid == true ? 167 : 169),
       child: Container(
         margin: EdgeInsets.only(
           right: AppLayout.getHeight(10),
@@ -27,7 +32,7 @@ class Ticketview extends StatelessWidget {
             //  showing the blue part of card/ticket
             Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: isColor == null ? Colors.blue : Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(AppLayout.getHeight(21)),
                   topRight: Radius.circular(AppLayout.getHeight(21)),
@@ -49,30 +54,8 @@ class Ticketview extends StatelessWidget {
                           children: [
                             SizedBox(
                               height: AppLayout.getHeight(24),
-                              child: LayoutBuilder(
-                                builder: (BuildContext context,
-                                    BoxConstraints constraints) {
-                                  print(
-                                      "the width is ${constraints.constrainWidth()}");
-                                  return Flex(
-                                    direction: Axis.horizontal,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(
-                                        (constraints.constrainWidth() / 6)
-                                            .floor(),
-                                        (index) => const SizedBox(
-                                              width: 3,
-                                              height: 1,
-                                              child: DecoratedBox(
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            )),
-                                  );
-                                },
+                              child: const AppLayoutBuilder(
+                                sections: 6,
                               ),
                             ),
                             Center(
@@ -185,11 +168,11 @@ class Ticketview extends StatelessWidget {
             ),
             // bottom pRT OF WHITE TICKET
             Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(21),
-                    bottomRight: Radius.circular(21)),
+                    bottomLeft: Radius.circular(isColor == null ? 21 : 0),
+                    bottomRight: Radius.circular(isColor == null ? 21 : 0)),
               ),
               padding: const EdgeInsets.only(
                 left: 16,
@@ -202,48 +185,21 @@ class Ticketview extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${ticket['date']} ',
-                            style: Styles.headLineStyle3,
-                          ),
-                          const Gap(5),
-                          Text(
-                            'Date',
-                            style: Styles.headLineStyle4,
-                          ),
-                        ],
+                      AppColumnLayout(
+                        firstText: ticket['date'],
+                        secondText: 'Date',
+                        alignment: CrossAxisAlignment.start,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            '${ticket['departure_time']}',
-                            style: Styles.headLineStyle3,
-                          ),
-                          const Gap(5),
-                          Text(
-                            'Departure Time',
-                            style: Styles.headLineStyle4,
-                          ),
-                        ],
+                      AppColumnLayout(
+                        firstText: ticket['departure_time'],
+                        secondText: 'Departure Time',
+                        alignment: CrossAxisAlignment.start,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            '${ticket['number'].toString()}',
-                            style: Styles.headLineStyle3,
-                          ),
-                          const Gap(5),
-                          Text(
-                            'Number',
-                            style: Styles.headLineStyle4,
-                          ),
-                        ],
-                      )
+                      AppColumnLayout(
+                        firstText: ticket['number'].toString(),
+                        secondText: 'Number',
+                        alignment: CrossAxisAlignment.start,
+                      ),
                     ],
                   ),
                 ],
