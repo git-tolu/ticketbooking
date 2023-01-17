@@ -196,7 +196,7 @@ class SearchScreen extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: '😎',
-                                style: TextStyle(
+                                style: TextStyle(                                                         
                                   fontSize: 38,
                                 ),
                               ),
