@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec0744f2-7066-473d-8be0-5b9bc3bcd8df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ticketbooking/lib/screens/ticket_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/ticketbooking/lib/screens/ticket_view.dart" afterDir="false" />
-    </list>
+    <list default="true" id="ec0744f2-7066-473d-8be0-5b9bc3bcd8df" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
